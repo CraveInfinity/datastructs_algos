@@ -58,6 +58,20 @@
 
 
 
-a = 'abcdef'
+# a = 'abcdef'
+#
+# print a[1:4]
 
-print a[1:4]
+
+a = [1, 2, 4, 5]
+a = [str(k) for k in a]
+i = 4
+
+x1= ''.join(a[:i])
+x2= ''.join(a[i:])
+
+x1 = ''
+
+
+a = '{}({})'.format(x1, x2)
+print a
