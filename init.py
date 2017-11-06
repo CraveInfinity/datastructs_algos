@@ -80,3 +80,5 @@
 a = 'abcdefghijk'
 
 print a[1: 5]
+
+print ord('b')
