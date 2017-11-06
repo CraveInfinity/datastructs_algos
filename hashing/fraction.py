@@ -88,6 +88,6 @@ class Solution:
 # numerator=8; denominator=7
 # numerator=-1000; denominator=-1000
 
-# numerator=87; denominator=22
+numerator=87; denominator=22
 
 print Solution().fractionToDecimal(numerator=numerator, denominator=denominator)
