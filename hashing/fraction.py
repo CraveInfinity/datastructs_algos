@@ -10,7 +10,6 @@ class Solution:
         d = {'bef': [], 'aft': [], 'decimal': False, 'repeat': False, 'nneg': False, 'dneg': False, 'n': 0}
         nums = []
 
-
         if numerator < 0:
             numerator = -1 * numerator
             d['nneg'] = True
