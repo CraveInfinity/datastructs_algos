@@ -77,8 +77,14 @@
 # print a
 
 
-a = 'abcdefghijk'
+# a = 'abcdefghijk'
+#
+# print a[1: 5]
+#
+# print ord('b')
 
-print a[1: 5]
 
-print ord('b')
+a = '()()()()'
+m = 1
+print a[m]
+print a[:m] + '()' + a[m:]
