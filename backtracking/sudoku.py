@@ -2,104 +2,143 @@ class Solution:
     # @param A : list of list of chars
     # @return nothing
     def __init__(self):
-        self.A = None
+        self.A = A
 
     def solveSudoku(self, A):
 
-        A = [list(a[0]) for a in A]
-        i = 0
+        A = [list(a) for a in A]
 
-        changes = []
-
-        while i < len(A):
-            j = 0
-            while j < len(A[0]):
-                if A[i][j] == '.':
-                    A[i][j] = 0
-                    changes.append((i, j))
+        for x in xrange(9):
+            for y in xrange(9):
+                if not A[x][y] == '.':
+                    A[x][y] = int(A[x][y])
                 else:
-                    A[i][j] = int(A[i][j])
+                    A[x][y] = 0
 
-                j += 1
+        self.sudoku(A, i=0, j=0)
 
-            i += 1
+        for x in xrange(9):
+            for y in xrange(9):
+                A[x][y] = str(A[x][y])
+            A[x] = ''.join(A[x])
 
         self.A = A
 
-        A[0][2] = 4
-        print self.check_possible((0, 2))
+        # A = [''.join(str(p) for p in q) for q in A]
 
-        self.sudoku(changes)
+    # def get_block(self, c):
+    #     (i, j) = c
+    #     blocks_cor = [2, 5, 8]
+    #
+    #     ti = 0
+    #     tj = 0
+    #
+    #     for m in blocks_cor:
+    #         if i <= m:
+    #             ti = m
+    #             break
+    #     for m in blocks_cor:
+    #         if j <= m:
+    #             tj = m
+    #             break
+    #
+    #     block = []
+    #     li = ti
+    #     while li > ti-3:
+    #         lj = tj
+    #         while lj > tj-3:
+    #             block.append(self.grid[li][lj])
+    #             lj -= 1
+    #         li -= 1
+    #     return block
 
-        return self.A
+    # def check_possible(self, c):
+    #
+    #     i, j = c
+    #     check = self.A[i][j]
+    #
+    #     row = self.A[i]
+    #     col = [self.A[x][j] for x in xrange(len(self.A))]
+    #
+    #     block = self.get_block(c)
+    #
+    #     count = 0
+    #
+    #     for i in xrange(9):
+    #         if check == row[i]:
+    #             count += 1
+    #
+    #         if check == col[i]:
+    #             count += 1
+    #
+    #         if check == block[i]:
+    #             count += 1
+    #
+    #     if count == 3:
+    #         return True
+    #     else:
+    #         return False
 
-    def get_block(self, c):
-        (i, j) = c
-        blocks_cor = [2, 5, 8]
+    @staticmethod
+    def getnextNumber(grid, i, j):
 
-        ti = 0
-        tj = 0
+        for l in xrange(i, 9):
+            for m in xrange(j, 9):
+                if grid[l][m] == 0:
+                    return l, m
 
-        for m in blocks_cor:
-            if i <= m:
-                ti = m
-                break
-        for m in blocks_cor:
-            if j <= m:
-                tj = m
-                break
+        for l in xrange(0, 9):
+            for m in xrange(0, 9):
+                if grid[l][m] == 0:
+                    return l, m
 
-        block = []
-        li = ti
-        while li > ti-3:
-            lj = tj
-            while lj > tj-3:
-                block.append(self.A[li][lj])
-                lj -= 1
-            li -= 1
-        return block
+        return -1, -1
 
-    def check_possible(self, c):
+    @staticmethod
+    def is_valid(grid, i, j, e):
+        row_ok = all([e != grid[i][x] for x in range(9)])
+        if row_ok:
+            column_ok = all([e != grid[x][j] for x in range(9)])
+            if column_ok:
+                # finding the top left x,y co-ordinates of the section containing the i,j cell
+                sec_top_x, sec_top_y = 3 *(i/3), 3 *(j/3)
+                for x in range(sec_top_x, sec_top_x+3):
+                    for y in range(sec_top_y, sec_top_y+3):
+                        if grid[x][y] == e:
+                            return False
+                return True
+        return False
 
-        i, j = c
-        check = self.A[i][j]
+    def sudoku(self, grid, i, j):
 
-        row = self.A[i]
-        col = [self.A[x][j] for x in xrange(len(self.A))]
-
-        block = self.get_block(c)
-
-        count = 0
-
-        for i in xrange(9):
-            if check == row[i]:
-                count += 1
-
-            if check == col[i]:
-                count += 1
-
-            if check == block[i]:
-                count += 1
-
-        if count == 3:
+        i, j = self.getnextNumber(grid, i, j)
+        if i == -1:
             return True
-        else:
-            return False
 
-    def sudoku(self, changes):
+        # for d in xrange(1, 10):
 
-        (i, j) = changes[0]
+            # if self.check_possible((i, j)):
+            #     self.A[i][j] = d
+            #     if self.sudoku(i, j):
+            #         return True
+            #     self.A[i][j] = 0
 
         for d in xrange(1, 10):
-            self.A[i][j] = d
-            if self.check_possible((i, j)):
-                self.sudoku(changes[1:])
-        else:
-            return
+            if self.is_valid(grid, i, j, d):
+                grid[i][j] = d
+                if self.sudoku(grid, i, j):
+                    return True
+                grid[i][j] = 0
+
+        return False
 
 
-A = [['53..7....'], ['6..195...'], ['.98....6.'], ['8...6...3'], ['4..8.3..1'], ['7...2...6'], ['.6....28.'], ['...419..5'], ['....8..79']]
-print Solution().solveSudoku(A)
+A = [ "53..7....", "6..195...", ".98....6.", "8...6...3", "4..8.3..1", "7...2...6", ".6....28.", "...419..5", "....8..79" ]
+
+k = Solution()
+print k.solveSudoku(A)
+
+print k.A
 
 
 

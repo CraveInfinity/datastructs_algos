@@ -84,7 +84,12 @@
 # print ord('b')
 
 
-a = '()()()()'
-m = 1
-print a[m]
-print a[:m] + '()' + a[m:]
+# a = '()()()()'
+# m = 1
+# print a[m]
+# print a[:m] + '()' + a[m:]
+
+
+a = [1, 2, 4]
+
+print list(xrange(1, 10))
