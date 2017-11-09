@@ -90,6 +90,10 @@
 # print a[:m] + '()' + a[m:]
 
 
-a = [1, 2, 4]
+# a = [1, 2, 4]
+#
+# print list(xrange(1, 10))
 
-print list(xrange(1, 10))
+a = {1: {0: 'hellow', 1: 'world'}}
+
+print a[1][1]
