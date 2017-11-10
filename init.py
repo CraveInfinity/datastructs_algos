@@ -92,8 +92,17 @@
 
 # a = [1, 2, 4]
 #
-# print list(xrange(1, 10))
+# # print list(xrange(1, 10))
+#
+# a = {1: {0: 'hellow', 1: 'world'}}
+#
+# print a[1][1]
 
-a = {1: {0: 'hellow', 1: 'world'}}
 
-print a[1][1]
+a = [1, 2, 3, 4, 2, 3, 0]
+i = a.index(max(a))
+
+print i
+print a[:0]
+
+print a[6:]
