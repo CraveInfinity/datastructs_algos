@@ -4,15 +4,24 @@ class Solution:
 
     @staticmethod
     def get_prefix(trie, words):
+
+        def singular(current_dict, rem):
+            for letter in rem:
+                current_dict = current_dict[letter]
+                if len(current_dict) > 1:
+                    return False
+            return True
+
+
         final = []
 
         for word in words:
             prefix = ''
             current = trie
-            for letter in word:
+            for i, letter in enumerate(word):
                 prefix += letter
                 current = current[letter]
-                if len(current) == 1:
+                if len(current) == 1 and singular(current, word[i+1:]):
                     final.append(prefix)
                     break
 
@@ -41,5 +50,6 @@ class Solution:
 
 
 A = [ "zebra", "dog", "duck", "dot" ]
+A = [ "bearcat", "bert" ]
 
 print Solution().prefix(A)
