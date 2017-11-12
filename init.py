@@ -102,7 +102,7 @@
 a = [1, 2, 3, 4, 2, 3, 0]
 i = a.index(max(a))
 
-print i
-print a[:0]
 
-print a[6:]
+a = [86, 77]
+
+print a[0:2]
