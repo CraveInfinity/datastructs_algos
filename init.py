@@ -99,10 +99,19 @@
 # print a[1][1]
 
 
-a = [1, 2, 3, 4, 2, 3, 0]
-i = a.index(max(a))
+# a = [1, 2, 3, 4, 2, 3, 0]
+# i = a.index(max(a))
+#
+#
+# a = [86, 77]
+#
+# print a[0:2]
 
 
-a = [86, 77]
+a = {9: 2}
 
-print a[0:2]
+
+a.setdefault(10, 1)
+a.setdefault(9, 1)
+
+print a
