@@ -6,36 +6,29 @@ class Solution:
             return reduce(lambda x, y: x * y, j)
 
         A.sort()
-        i = 3
-        j = [A[0], A[1], A[2]]
+        max_pos = A[-3:]
+        pos_val = reduce(lambda x,y: x*y, max_pos)
 
-        p = product(j)
-        replace = None
+        # print A
 
-        while i < len(A):
-            print j
-            print A[i]
-            l = 0
-            z = []
-            while l < len(j):
-                temp = [k for k in j]
+        if A[0] < 0 and A[1] < 0:
+            max_abs = A[0] * A[1]
+        else:
+            max_abs = 0
 
-                temp[l] = A[i]
-                print temp
-                t = product(temp)
 
-                if p < t:
-                    replace = l
+        if max_abs:
+            final = max_abs*max_pos[-1]
 
-                l += 1
-
-            if replace:
-                j[replace] = A[i]
-
-            i += 1
-
-        return product(j)
+            if final > pos_val:
+                return final
+            else:
+                return pos_val
+        else:
+            return pos_val
 
 A = [0, -1, 3, 100, 70, 50]
+A = [ 1, 3, 5, 2, 8, 0, -1, -3 ]
+
 
 print Solution().maxp3(A)
