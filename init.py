@@ -107,11 +107,14 @@
 #
 # print a[0:2]
 
+#
+# a = {9: 2}
+#
+#
+# a.setdefault(10, 1)
+# a.setdefault(9, 1)
+#
+# print a
 
-a = {9: 2}
 
-
-a.setdefault(10, 1)
-a.setdefault(9, 1)
-
-print a
+a = [True, False]
