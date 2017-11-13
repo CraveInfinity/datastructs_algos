@@ -6,7 +6,6 @@ class Solution:
         A.sort()
         B.sort()
 
-
         # l_dist = abs(A[0] - B[0])
         #
         # r_dist = abs(A[-1] - B[-1])
@@ -29,9 +28,6 @@ class Solution:
             i += 1
 
         return r
-
-
-
 
 
 A = [4, -4, 2]
