@@ -117,4 +117,7 @@
 # print a
 
 
-a = [True, False]
+a = [1, 1]
+b = [2, 2]
+
+print [a+b for a, b in zip(a, b)]
