@@ -116,8 +116,20 @@
 #
 # print a
 
+#
+# a = [1, 1]
+# b = [2, 2]
+#
+# print [a+b for a, b in zip(a, b)]
 
-a = [1, 1]
-b = [2, 2]
 
-print [a+b for a, b in zip(a, b)]
+
+print list(xrange(10, -1, -1))
+
+
+
+
+
+
+
+
