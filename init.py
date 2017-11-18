@@ -124,7 +124,7 @@
 
 
 
-print list(xrange(10, -1, -1))
+print [[0]*3] *3
 
 
 
