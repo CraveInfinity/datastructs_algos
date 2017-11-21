@@ -129,7 +129,7 @@ i = 2
 
 print len([A[0][i+2:], A[1][i+2:]])
 
-print [[[[0]*2]*2]*2]*2
+print list(xrange(1,-2,-1))
 
 
 
