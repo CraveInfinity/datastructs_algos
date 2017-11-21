@@ -139,14 +139,12 @@ class Solution:
         q = Queue()
         q.enqueue((0, 0))
 
-        while not q.isEmpty() :
+        while not q.isEmpty():
             current = q.front()
             q.dequeue()
 
             if current[0] == self.A and current[1] == self.B:
                 return 'YES'
-            # for i in xrange(1, -2, -1):
-            #     for j in xrange(1, -2, -1):
             for i in xrange(2):
                 for j in xrange(2):
 
@@ -180,4 +178,4 @@ class Solution:
         return True
 
 
-print Solution().solve(2, 3, 0, 1, [], [])
+print Solution().solve(10, 10, 1, 1, [10], [10])
