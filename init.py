@@ -124,12 +124,22 @@
 
 
 
-A = [[1, 2, 3, 4], [2, 3, 4, 5]]
-i = 2
+# A = [[1, 2, 3, 4], [2, 3, 4, 5]]
+# i = 2
+#
+# print len([A[0][i+2:], A[1][i+2:]])
+#
+# print list(xrange(1,-2,-1))
 
-print len([A[0][i+2:], A[1][i+2:]])
+b = []
+c = []
 
-print list(xrange(1,-2,-1))
+a = [b, c]
+
+b.append(1)
+c.append(1)
+
+print a
 
 
 
