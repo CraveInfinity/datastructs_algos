@@ -130,16 +130,13 @@
 # print len([A[0][i+2:], A[1][i+2:]])
 #
 # print list(xrange(1,-2,-1))
+l = 4
+a = [1, 1]
+x = True
+while x:
+    a.append(a[-1] + a[-2])
 
-b = []
-c = []
-
-a = [b, c]
-
-b.append(1)
-c.append(1)
-
-print a
+    print a
 
 
 

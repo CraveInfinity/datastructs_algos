@@ -1,5 +1,6 @@
 # Definition for a undirected graph node
 
+
 class Queue(object):
     def __init__(self):
         self.items = []
@@ -29,7 +30,7 @@ class UndirectedGraphNode:
         self.neighbors = []
 
 
-class Solution:
+class Solution(object):
     # @param node, a undirected graph node
     # @return a undirected graph node
     def cloneGraph(self, node):
