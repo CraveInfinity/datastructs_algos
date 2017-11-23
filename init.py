@@ -131,12 +131,11 @@
 #
 # print list(xrange(1,-2,-1))
 l = 4
-a = [1, 1]
-x = True
-while x:
-    a.append(a[-1] + a[-2])
+a = [1, 2, 3, 4]
 
-    print a
+i = 1
+
+print a[i+1:]
 
 
 
