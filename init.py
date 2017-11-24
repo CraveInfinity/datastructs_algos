@@ -130,12 +130,17 @@
 # print len([A[0][i+2:], A[1][i+2:]])
 #
 # print list(xrange(1,-2,-1))
-l = 4
-a = [1, 2, 3, 4]
+# l = 4
+# a = [1, 2, 3, 4]
+#
+# i = 1
+#
+# print a[i+1:]
 
-i = 1
 
-print a[i+1:]
+a = {'a': 1, 'b': 2, 'c': 3}
+
+print a.get('d')
 
 
 

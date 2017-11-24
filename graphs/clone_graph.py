@@ -42,14 +42,14 @@ class Solution(object):
             current = q.front()
             q.dequeue()
 
-            if current in label_dict:
+            if label_dict.get(current):
                 current_copy = label_dict[current]
             else:
                 current_copy = UndirectedGraphNode(current.label)
                 label_dict[current] = current_copy
 
             for node_x in current.neighbors:
-                if node_x in label_dict.keys():
+                if label_dict.get(node_x):
                     if label_dict[node_x] not in current_copy.neighbors:
                         current_copy.neighbors.append(label_dict[node_x])
                 else:
@@ -87,11 +87,4 @@ for n in h.neighbors:
         print p.label
 
     print "\n\n"
-
-
-
-
-
-
-
 
